@@ -30,14 +30,6 @@ export const App = () => {
     setThx(true);
     setLoading(false);
   };
-  const submitWithout = () => {
-    window.gtag('event', '5182_buy2_var4');
-
-    setLoading(true);
-    // LS.setItem(LSKeys.ShowThx, true);
-    setThx(true);
-    setLoading(false);
-  };
 
   if (thxShow) {
     return <ThxLayout />;
@@ -67,37 +59,18 @@ export const App = () => {
       </div>
 
       <div className={appSt.container} style={{ backgroundColor: '#fff' }}>
-        <div>
-          <Typography.TitleResponsive style={{ marginTop: '1rem' }} tag="h1" view="small" font="system" weight="semibold">
-            Что мы прогнозируем
+        <Typography.TitleResponsive style={{ marginTop: '1rem' }} tag="h1" view="small" font="system" weight="semibold">
+          Что мы прогнозируем
+        </Typography.TitleResponsive>
+
+        <div className={appSt.row}>
+          <Typography.TitleResponsive tag="h2" view="large" font="system" weight="medium">
+            +11.75%
           </Typography.TitleResponsive>
-          <Typography.Text view="primary-medium" tag="p" defaultMargins={false}>
-            В течение 2–4 недель
+          <Typography.Text style={{ marginBottom: '4px' }} view="secondary-large" tag="p" defaultMargins={false}>
+            за 4–6 месяцев
           </Typography.Text>
         </div>
-
-        <Grid.Row>
-          <Grid.Col width="6">
-            <div className={appSt.box}>
-              <Typography.TitleResponsive tag="h2" view="large" font="system" weight="medium">
-                +25%
-              </Typography.TitleResponsive>
-              <Typography.Text view="secondary-large" tag="p" defaultMargins={false}>
-                С плечом
-              </Typography.Text>
-            </div>
-          </Grid.Col>
-          <Grid.Col width="6">
-            <div className={appSt.box}>
-              <Typography.TitleResponsive tag="h2" view="large" font="system" weight="medium">
-                +11.75%
-              </Typography.TitleResponsive>
-              <Typography.Text view="secondary-large" tag="p" defaultMargins={false}>
-                Без плеча
-              </Typography.Text>
-            </div>
-          </Grid.Col>
-        </Grid.Row>
 
         <Grid.Row>
           <Grid.Col width="6">
@@ -250,14 +223,11 @@ export const App = () => {
           Гаврилов, инвестиционный аналитик Альфа-Инвестиции
         </Typography.Text>
       </div>
-      <Gap size={256} />
+      <Gap size={96} />
 
       <div className={appSt.bottomBtn}>
-        <ButtonMobile loading={loading} block view="primary" onClick={submitWith}>
-          Перейти к покупке с плечом
-        </ButtonMobile>
-        <ButtonMobile loading={loading} block view="secondary" onClick={submitWithout}>
-          Перейти к покупке без плеча
+        <ButtonMobile loading={loading} block view="secondary" onClick={submitWith}>
+          Перейти к покупке
         </ButtonMobile>
       </div>
     </>
