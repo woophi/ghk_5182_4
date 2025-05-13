@@ -11,11 +11,12 @@ import { useEffect, useState } from 'react';
 import polusImg from './assets/polus.png';
 import { LS, LSKeys } from './ls';
 import { appSt } from './style.css';
-import { ThxLayout } from './thx/ThxLayout';
+
+const sduiLink =
+  'alfabank://sdui_screen?screenName=InvestmentLongread&fromCurrent=true&endpoint=v1/invest-main-screen-view/investment-longread/52384%3flocation=AM%26campaignCode=GH';
 
 export const App = () => {
   const [loading, setLoading] = useState(false);
-  const [thxShow, setThx] = useState(LS.getItem(LSKeys.ShowThx, false));
 
   useEffect(() => {
     if (!LS.getItem(LSKeys.UserId, null)) {
@@ -26,14 +27,8 @@ export const App = () => {
   const submitWith = () => {
     window.gtag('event', '5182_buy1_var4');
     setLoading(true);
-    // LS.setItem(LSKeys.ShowThx, true);
-    setThx(true);
-    setLoading(false);
+    window.location.replace(sduiLink);
   };
-
-  if (thxShow) {
-    return <ThxLayout />;
-  }
 
   return (
     <>
