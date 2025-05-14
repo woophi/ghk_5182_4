@@ -221,7 +221,7 @@ export const App = () => {
       <Gap size={96} />
 
       <div className={appSt.bottomBtn}>
-        <ButtonMobile loading={loading} block view="secondary" onClick={submitWith}>
+        <ButtonMobile loading={loading} block view="primary" onClick={submitWith}>
           Перейти к покупке
         </ButtonMobile>
       </div>
